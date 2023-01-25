@@ -1,0 +1,255 @@
+/* rem and em do NOT depend on html font-size in media queries. Instead, 1rem = 1em = 16px. Now here we mentioned em which simply stand for the current font size. we should use em instead of rem to avoid bug in some web browser. */
+
+/* ****************************** */
+/* BELOW 1344px (smaller desktop) */
+/* ****************************** */
+@media (max-width: 84em) {
+  .hero {
+    max-width: 120em;
+  }
+  .primary_heading {
+    font-size: 4.4rem;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* ****************************** */
+/* BELOW 1200px (Landscape Tablets) */
+/* ****************************** */
+@media (max-width: 75em) {
+  html {
+    /* 9px / 16px */
+    font-size: 56.25%;
+  }
+  .secondary_heading {
+    font-size: 3.6rem;
+  }
+  .heading_tertiary {
+    font-size: 2.4rem;
+  }
+  .grid {
+    display: grid;
+    column-gap: 4.4rem;
+    row-gap: 6.4rem;
+  }
+  .header {
+    padding: 0 3.2rem;
+  }
+  .main_nav_list {
+    gap: 3.2rem;
+  }
+  .hero {
+    gap: 4.8rem;
+  }
+  .testimonials_container {
+    padding: 9.6rem 3.2rem;
+  }
+}
+/* ****************************** */
+/* BELOW 960px (Tablets) */
+/* ****************************** */
+@media (max-width: 60em) {
+  html {
+    /* 8px / 16px */
+    font-size: 50%;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 8rem;
+    gap: 6.4rem;
+  }
+  .hero_img_box .hero_img {
+    width: 60%;
+  }
+  .hero_text_box,
+  .hero_img_box {
+    text-align: center;
+  }
+  .delivered_meals {
+    justify-content: center;
+    margin-top: 3.2rem;
+  }
+  .logos img {
+    height: 2.4rem;
+  }
+  .step_number {
+    font-size: 7.4rem;
+    font-weight: 600;
+    color: #ddd;
+    margin-bottom: 1.2rem;
+  }
+  .meal_content {
+    padding: 2.4rem 3.2rem 3.2rem 3.2rem;
+  }
+  .testimonial_section {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .list_item {
+    line-height: 1.2;
+  }
+  .cta {
+    grid-template-columns: 3fr 2fr;
+  }
+  .cta_form {
+    grid-template-columns: 1fr;
+  }
+  .btn_form {
+    margin-top: 1.2rem;
+  }
+  /* Mobile Navigation */
+  .btn_mobile_nav {
+    display: block;
+    z-index: 1000;
+  }
+  .main_nav {
+    position: absolute;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in;
+
+    /* Hide navigation */
+    /* if we add display: none; here than it will not allow us to add any transition */
+
+    /* 1) Hide it visually */
+    opacity: 0;
+    /* 2) make it unaccessible to mouse and keyboard */
+    pointer-events: none;
+    /* 3) hide it from screen reader */
+    visibility: hidden;
+  }
+
+  /* active class */
+  .nav-open .main_nav {
+    opacity: 1;
+    pointer-events: all;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .nav-open .icon_mobile_nav[name='close-outline'] {
+    display: block;
+  }
+  .nav-open .icon_mobile_nav[name='menu-outline'] {
+    display: none;
+  }
+  .main_nav_list {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  .main_nav_link:link,
+  .main_nav_link:visited {
+    font-size: 3rem;
+  }
+}
+/* ****************************** */
+/* BELOW 700px (Smaller Tablets) */
+/* ****************************** */
+@media (max-width: 44em) {
+  .grid_3_cols,
+  .grid_4_cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .diets {
+    grid-column: 1/-1;
+    /* here 1/-1 make the the grid last grid in 2 gird. that means it take one column size but has access in full size */
+    justify-self: center;
+  }
+  .secondary_heading {
+    margin-bottom: 6.4rem;
+  }
+  .pricing_plan {
+    width: 100%;
+  }
+  .grid_footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .logo_col,
+  .address_col {
+    grid-column: span 3;
+  }
+  .nav_col {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+}
+/* ****************************** */
+/* BELOW 544px (Phones) */
+/* ****************************** */
+@media (max-width: 34em) {
+  .grid {
+    row-gap: 4.8rem;
+  }
+  .grid_2_cols,
+  .grid_3_cols,
+  .grid_4_cols {
+    grid-template-columns: 1fr;
+  }
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+  }
+  .section_hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+  .hero {
+    padding: 0 3.2rem;
+  }
+  .hero_img_box .hero_img {
+    width: 80%;
+  }
+  .logos img {
+    height: 1.2rem;
+  }
+  .section_how {
+    padding: 3.2rem;
+  }
+  .secondary_heading {
+    font-size: 3rem;
+  }
+  .img_box {
+    transform: translateY(2.4rem);
+  }
+  .img_box:nth-child(2) {
+    grid-row: 1;
+  }
+  .img_box:nth-child(6) {
+    grid-row: 5;
+  }
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+  .cta {
+    grid-template-columns: 1fr;
+  }
+  .cta_img_box {
+    height: 32rem;
+    grid-row: 1;
+  }
+  .cta_text_box {
+    padding: 3.2rem;
+  }
+}
+/*
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+ */
